@@ -27,8 +27,6 @@ Example Playbook
 ```
 - hosts: all
   vars:
-  vars:
-    hosts_file: /etc/hosts_test
     hosts_entries:
       - name: sakura.ne.jp
         ip: 163.43.24.70
