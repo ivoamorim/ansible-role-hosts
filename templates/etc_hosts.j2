@@ -1,0 +1,9 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+{% if hosts_entries|length != 0 %}
+# Custom entries
+{%   for host in hosts_entries %}
+{{ host.ip }} {{ host.name }} {{ host.aliases | default('') | join(' ') }}
+{%   endfor %}
+{% endif %}

@@ -1,0 +1,19 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    hosts_file: /etc/hosts_test
+    hosts_entries:
+      - name: test_host
+        ip: 8.8.8.8
+        aliases:
+          - test_alias
+
+  pre_tasks:
+    - name: Install Dependencies.
+      yum: name=libselinux-python
+      when: ansible_os_family == 'RedHat'
+      changed_when: false
+
+  roles:
+    - role: ansible-role-hosts
